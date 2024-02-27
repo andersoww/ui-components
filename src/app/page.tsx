@@ -28,7 +28,7 @@ export default function Home() {
           ].map((item, index) => (
             <AutoCompleteItem
               key={index}
-              index={0}
+              index={index}
               id={item}
               description={item}
             >

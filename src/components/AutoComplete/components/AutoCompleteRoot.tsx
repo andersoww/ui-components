@@ -83,6 +83,7 @@ const AutoCompleteRoot = ({
 
       if (!componentRef.current?.contains(relatedTarget)) {
         eventChangeAutoComplete(false);
+        setFocusedIndex(-1);
       }
     },
     [eventChangeAutoComplete]

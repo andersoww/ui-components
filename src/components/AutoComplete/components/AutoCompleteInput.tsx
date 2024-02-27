@@ -66,6 +66,7 @@ const AutoCompleteInput = forwardRef<HTMLInputElement, TextInputInputProps>(
         )}
         onClick={onClick}
         onChange={(e) => {
+          setFocusedIndex(0);
           eventChangeAutoComplete(true);
           onChangeValue(e.currentTarget.value);
           if (!e.currentTarget.value) {
