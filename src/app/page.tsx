@@ -1,54 +1,56 @@
-import {
-  AutoCompleteContainer,
-  AutoCompleteItem,
-} from "@/components/AutoComplete";
-import { Check } from "lucide-react";
+import { Timeline } from "@/components/Timeline";
+import { TimelineItem } from "@/components/Timeline/components/TimelineItem";
 
 export default function Home() {
   return (
-    <main className="flex min-h-screen flex-col items-center gap-8 p-4 bg-gradient-to-r from-slate-900 to-slate-700 justify-center">
-      <div className="flex flex-col bg-white shadow-sm rounded-md w-full max-w-[500px] p-4 gap-4">
-        <div>
-          <h1 className="text-xl text-zinc-700 font-bold">Create User</h1>
-          <p className="text-zinc-700">
-            Enter your load to complete the registration.
-          </p>
-        </div>
-
-        <AutoCompleteContainer
-          label="Roles:"
-          className="w-1/2"
-          placeholder="Choose a role..."
-        >
-          {[
-            "Software Developer",
-            "Web Developer",
-            "Mobile App Developer",
-            "Front-end Developer",
-          ].map((item, index) => (
-            <AutoCompleteItem
-              key={index}
-              index={index}
-              id={item}
-              description={item}
-            >
-              <div className="flex items-center gap-3">
-                <p className="text-md font-bold">{item}</p>
-
-                <div className="w-4 h-4 rounded-sm bg-green-500 justify-center items-center flex">
-                  <Check className="w-3 h-3 text-white" />
+    <main className="flex min-h-screen flex-col items-center gap-8 p-4 bg-[#02040a] justify-center">
+      <div className="shadow-sm w-[350px] bg-[#0e1117] rounded-md p-4 absolute top-[50%] left-[50%] translate-x-[-50%] translate-y-[-50%] border border-[#30363d]">
+        <Timeline.Root>
+          <Timeline.Header>
+            <h1 className="text-[#e6edf3] font-bold">Latest changes</h1>
+          </Timeline.Header>
+          <Timeline.Content>
+            {[
+              {
+                title: "11 hours ago",
+                description: "Enterprise READMEs",
+              },
+              {
+                title: "Yesterday",
+                description: "Copilot – February 27th update",
+                status: 1,
+              },
+              {
+                title: "Yesterday",
+                description:
+                  "Repository Rules – configure merge queue rule – public beta",
+                status: 2,
+              },
+              {
+                title: "Yesterday",
+                description:
+                  "GitHub Copilot Enterprise is now generally available",
+              },
+            ].map((item, index) => (
+              <Timeline.Item key={index}>
+                <Timeline.Point />
+                <div className="pl-6">
+                  <h1 className="text-[#828b95] text-xs">{item.title}</h1>
+                  <p className="text-[#e6edf3] text-sm hover:underline hover:text-blue-500 hover:cursor-pointer">
+                    {item.description}
+                  </p>
                 </div>
+              </Timeline.Item>
+            ))}
+            <TimelineItem className="!p-0">
+              <div className="pl-6">
+                <p className="text-[#828b95] text-xs hover:underline hover:text-blue-500 hover:cursor-pointer">
+                  View changelog →
+                </p>
               </div>
-            </AutoCompleteItem>
-          ))}
-        </AutoCompleteContainer>
-
-        <div className="flex w-full justify-between">
-          <button className="px-3 py-2 text-zinc-600 rounded-lg">Cancel</button>
-          <button className="bg-blue-500 px-3 py-2 rounded-xl shadow-sm">
-            Save
-          </button>
-        </div>
+            </TimelineItem>
+          </Timeline.Content>
+        </Timeline.Root>
       </div>
     </main>
   );
