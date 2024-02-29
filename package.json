@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "watch:tailwind": "npx tailwindcss -i ./src/styles/global.css -o ./src/styles/tailwindStyles.css --watch"
   },
   "dependencies": {
     "clsx": "^2.1.0",

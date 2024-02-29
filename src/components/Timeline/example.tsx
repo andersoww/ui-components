@@ -30,7 +30,7 @@ function ExampleTimeline() {
           ].map((item, index) => (
             <Timeline.Item key={index}>
               <Timeline.Point />
-              <div className="pl-6">
+              <div>
                 <h1 className="text-[#828b95] text-xs">{item.title}</h1>
                 <p className="text-[#e6edf3] text-sm hover:underline hover:text-blue-500 hover:cursor-pointer">
                   {item.description}
@@ -38,8 +38,8 @@ function ExampleTimeline() {
               </div>
             </Timeline.Item>
           ))}
-          <Timeline.Item className="!p-0">
-            <div className="pl-6">
+          <Timeline.Item className="pb-0">
+            <div>
               <p className="text-[#828b95] text-xs hover:underline hover:text-blue-500 hover:cursor-pointer">
                 View changelog →
               </p>

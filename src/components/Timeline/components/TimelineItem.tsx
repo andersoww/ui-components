@@ -8,8 +8,7 @@ function TimelineItem({
   return (
     <li
       className={clsx(
-        "relative border-[#21262d] pb-4 border-l",
-
+        "relative border-[#21262d] pb-4 border-l pl-6",
         className
       )}
     >
