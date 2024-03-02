@@ -29,10 +29,11 @@ function NotificationContainer({
     <AnimatePresence>
       {isOpen && (
         <motion.div
+          tabIndex={1}
           animate="enter"
           initial="initial"
           exit="exit"
-          className="flex flex-col w-[446px] bg-[#212121] rounded-t-lg rounded-b-lg border-[#303030] border absolute -translate-x-[91%]"
+          className="flex flex-col w-[446px] bg-[#212121] rounded-t-lg rounded-b-lg border-[#303030] border absolute -translate-x-[91%] mt-12"
           variants={animate}
         >
           {children}

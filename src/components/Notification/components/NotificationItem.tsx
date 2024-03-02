@@ -4,12 +4,13 @@ import { PropsWithChildren } from "react";
 import { motion } from "framer-motion";
 
 interface INotificationItem extends PropsWithChildren {
-  avatar: string;
   name: string;
+  message: string;
+  avatar: string;
   time: string;
 }
 
-function NotificationItem({ name, avatar, time, children }: INotificationItem) {
+function NotificationItem({ name, avatar, message }: INotificationItem) {
   return (
     <motion.li
       className="w-full px-6 py-4 border-b border-[#303030] flex gap-4 hover:bg-[#3d3d3d66] transition-all hover:cursor-pointer"
@@ -61,9 +62,7 @@ function NotificationItem({ name, avatar, time, children }: INotificationItem) {
         <div>
           <p className="text-[#848484]">
             Completed{" "}
-            <span className="text-blue-500 hover:underline">
-              Improve workflow in Figma
-            </span>
+            <span className="text-blue-500 hover:underline">{message}</span>
           </p>
         </div>
       </div>

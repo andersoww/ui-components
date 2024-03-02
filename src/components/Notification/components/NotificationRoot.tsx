@@ -5,7 +5,10 @@ import {
   useCallback,
   useContext,
   useEffect,
+  useRef,
   useState,
+  FocusEvent,
+  Children,
 } from "react";
 
 interface INotificationRoot extends PropsWithChildren {
@@ -25,9 +28,18 @@ const NotificationContext = createContext<INotificationContext>(
 function NotificationRoot({ children, length }: INotificationRoot) {
   const [isOpen, setIsOpen] = useState(false);
   const [count, setCount] = useState(0);
+  const componentRef = useRef<HTMLDivElement | null>(null);
 
   const onChangeOpen = useCallback((value: boolean) => {
     setIsOpen(value);
+  }, []);
+
+  const escapeContainer = useCallback((e: FocusEvent) => {
+    const { relatedTarget } = e;
+
+    if (!componentRef.current?.contains(relatedTarget)) {
+      setIsOpen(false);
+    }
   }, []);
 
   useEffect(() => {
@@ -36,7 +48,14 @@ function NotificationRoot({ children, length }: INotificationRoot) {
 
   return (
     <NotificationContext.Provider value={{ isOpen, count, onChangeOpen }}>
-      <div className="retive">{children}</div>
+      <div
+        tabIndex={0}
+        ref={componentRef}
+        className="relative flex"
+        onBlur={escapeContainer}
+      >
+        {children}
+      </div>
     </NotificationContext.Provider>
   );
 }
