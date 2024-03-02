@@ -1,5 +1,6 @@
 "use client";
 import {
+  FocusEvent,
   PropsWithChildren,
   createContext,
   useCallback,
@@ -7,8 +8,6 @@ import {
   useEffect,
   useRef,
   useState,
-  FocusEvent,
-  Children,
 } from "react";
 
 interface INotificationRoot extends PropsWithChildren {
