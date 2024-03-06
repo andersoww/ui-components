@@ -1,5 +1,5 @@
-import { ExampleNotification } from "@/components/Notification/example";
+import { ExampleOTP } from "@/components/Otp/example";
 
 export default function Home() {
-  return <ExampleNotification />;
+  return <ExampleOTP />;
 }
