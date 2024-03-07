@@ -4,14 +4,13 @@ import { ClientOnly } from "@/components/ClientOnly";
 import clsx from "clsx";
 import {
   ChangeEvent,
-  InputHTMLAttributes,
-  forwardRef,
-  KeyboardEvent,
   ClipboardEvent,
+  InputHTMLAttributes,
+  KeyboardEvent,
+  forwardRef,
 } from "react";
 
 interface IOtpInput extends InputHTMLAttributes<HTMLInputElement> {
-  OtpRef?: HTMLInputElement[] | null;
   index?: number;
   onChangeOtp?: (e: ChangeEvent, index?: number) => void;
   onKeyUpChangeOtp?: (
@@ -23,15 +22,7 @@ interface IOtpInput extends InputHTMLAttributes<HTMLInputElement> {
 
 const OtpInput = forwardRef<HTMLInputElement, IOtpInput>(
   (
-    {
-      className,
-      index,
-      OtpRef,
-      onKeyUpChangeOtp,
-      onChangeOtp,
-      onPasteOtp,
-      ...rest
-    },
+    { className, index, onKeyUpChangeOtp, onChangeOtp, onPasteOtp, ...rest },
     ref
   ) => {
     return (
@@ -41,13 +32,14 @@ const OtpInput = forwardRef<HTMLInputElement, IOtpInput>(
         }
       >
         <input
+          autoFocus={index === 0}
           type="tel"
           className={clsx(
-            "w-16 h-16 rounded-lg bg-[#252828] text-xl text-center appearance-none",
+            "w-16 h-16 rounded-lg bg-[#252828] text-xl text-center appearance-none hover:border-2 border-[#0a9d7f] transition-all hover:cursor-pointer outline-none focus:border-2",
             className
           )}
           maxLength={1}
-          ref={(referer) => OtpRef?.push(referer as HTMLInputElement)}
+          ref={ref}
           onChange={(e) => onChangeOtp && onChangeOtp(e, index)}
           onKeyDown={(e) => onKeyUpChangeOtp && onKeyUpChangeOtp(e, index)}
           onPaste={onPasteOtp}

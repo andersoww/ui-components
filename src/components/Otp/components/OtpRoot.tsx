@@ -1,4 +1,5 @@
 "use client";
+
 import clsx from "clsx";
 import {
   ChangeEvent,
@@ -9,6 +10,7 @@ import {
   ReactElement,
   cloneElement,
   useCallback,
+  useEffect,
   useRef,
   useState,
 } from "react";
@@ -33,10 +35,6 @@ function OtpRoot({ className, children, handleSubmitOtp }: IOtpRoot) {
       const { target } = e;
 
       e.target.value = e.target.value.replace(/[^0-9]/g, "");
-
-      if (target.value) {
-        console.log(target.value);
-      }
 
       const aux = [...otp];
 
@@ -77,7 +75,7 @@ function OtpRoot({ className, children, handleSubmitOtp }: IOtpRoot) {
 
         const aux = pasteText.map((val, index) => {
           if (otpBoxReference.current[index]) {
-            otpBoxReference.current[index].value = val;
+            return (otpBoxReference.current[index].value = val);
           }
         });
 
@@ -91,11 +89,13 @@ function OtpRoot({ className, children, handleSubmitOtp }: IOtpRoot) {
     <div className={clsx("flex gap-4", className)}>
       {dataElement.map((child, index) => {
         return cloneElement(child, {
-          OtpRef: otpBoxReference.current,
           index,
           onKeyUpChangeOtp,
           onChangeOtp,
           onPasteOtp,
+          ref: (referer: HTMLInputElement) => {
+            return (otpBoxReference.current[index] = referer);
+          },
         });
       })}
     </div>
