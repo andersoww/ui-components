@@ -6,7 +6,7 @@ import { LazyMotion, domMax, m } from "framer-motion";
 import { useRef } from "react";
 import { twMerge } from "tailwind-merge";
 
-interface ITab<T> {
+interface ITab<T> extends HTMLButtonElement {
   item: Node<T>;
   state: any;
   classNames: {
@@ -15,18 +15,21 @@ interface ITab<T> {
 }
 
 function Tab(props: ITab<object>) {
-  const { item, state, classNames } = props;
+  const { item, state, classNames, disabled } = props;
   const { key, rendered } = item;
 
   const ref = useRef(null);
 
-  const { tabProps, isSelected } = useTab({ key }, state, ref);
+  const { tabProps, isSelected } = useTab({ key, isDisabled: disabled }, state, ref);
 
   return (
     <button
-      className="z-0 w-fit flex relative items-center cursor-pointer h-12 outline-none"
+      className={clsx("z-0 w-fit flex relative items-center cursor-pointer h-12 outline-none", {
+        'opacity-40 cursor-not-allowed': disabled 
+      })}
       data-slot="tab"
       ref={ref}
+      disabled={disabled}
       {...tabProps}
     >
       {isSelected ? (
@@ -56,3 +59,4 @@ function Tab(props: ITab<object>) {
 }
 
 export { Tab };
+

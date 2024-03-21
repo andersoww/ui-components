@@ -612,6 +612,10 @@ video {
   margin-bottom: 72px;
 }
 
+.mt-1 {
+  margin-top: 0.25rem;
+}
+
 .mt-12 {
   margin-top: 3rem;
 }
@@ -630,10 +634,6 @@ video {
 
 .mt-3 {
   margin-top: 0.75rem;
-}
-
-.mt-6 {
-  margin-top: 1.5rem;
 }
 
 .block {
@@ -670,6 +670,10 @@ video {
 
 .h-2 {
   height: 0.5rem;
+}
+
+.h-20 {
+  height: 5rem;
 }
 
 .h-24 {
@@ -712,6 +716,10 @@ video {
   height: 400px;
 }
 
+.h-\[450px\] {
+  height: 450px;
+}
+
 .h-\[72px\] {
   height: 72px;
 }
@@ -731,6 +739,10 @@ video {
 
 .h-screen {
   height: 100vh;
+}
+
+.h-10 {
+  height: 2.5rem;
 }
 
 .max-h-\[150px\] {
@@ -773,16 +785,16 @@ video {
   width: 0.5rem;
 }
 
+.w-20 {
+  width: 5rem;
+}
+
 .w-3 {
   width: 0.75rem;
 }
 
 .w-3\.5 {
   width: 0.875rem;
-}
-
-.w-3\/5 {
-  width: 60%;
 }
 
 .w-4 {
@@ -824,6 +836,10 @@ video {
 
 .w-screen {
   width: 100vw;
+}
+
+.w-10 {
+  width: 2.5rem;
 }
 
 .max-w-\[500px\] {
@@ -886,6 +902,10 @@ video {
   cursor: pointer;
 }
 
+.cursor-not-allowed {
+  cursor: not-allowed;
+}
+
 .appearance-none {
   -webkit-appearance: none;
      -moz-appearance: none;
@@ -898,6 +918,10 @@ video {
 
 .flex-col {
   flex-direction: column;
+}
+
+.items-start {
+  align-items: flex-start;
 }
 
 .items-center {
@@ -914,6 +938,10 @@ video {
 
 .gap-1 {
   gap: 0.25rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .gap-3 {
@@ -1286,6 +1314,10 @@ video {
   text-align: center;
 }
 
+.text-end {
+  text-align: end;
+}
+
 .text-2xl {
   font-size: 1.5rem;
   line-height: 2rem;
@@ -1346,9 +1378,19 @@ video {
   color: rgb(132 132 132 / var(--tw-text-opacity));
 }
 
+.text-\[\#898989\] {
+  --tw-text-opacity: 1;
+  color: rgb(137 137 137 / var(--tw-text-opacity));
+}
+
 .text-\[\#e6edf3\] {
   --tw-text-opacity: 1;
   color: rgb(230 237 243 / var(--tw-text-opacity));
+}
+
+.text-\[\#fe6c46\] {
+  --tw-text-opacity: 1;
+  color: rgb(254 108 70 / var(--tw-text-opacity));
 }
 
 .text-blue-500 {
@@ -1374,6 +1416,14 @@ video {
 .text-zinc-700 {
   --tw-text-opacity: 1;
   color: rgb(63 63 70 / var(--tw-text-opacity));
+}
+
+.opacity-30 {
+  opacity: 0.3;
+}
+
+.opacity-40 {
+  opacity: 0.4;
 }
 
 .shadow-\[0_1px_0px_0_rgba\(0\2c 0\2c 0\2c 0\.05\)\] {
