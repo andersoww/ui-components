@@ -16,7 +16,7 @@ function ExampleOTP() {
           </h1>
 
           <p className="text-center">
-            We`ve sent a code to{" "}
+            {"We've"} sent a code to{" "}
             <span className="font-bold text-[#0a9d7f]">test@gmail.com</span>
           </p>
         </div>
@@ -36,7 +36,7 @@ function ExampleOTP() {
           </OtpRoot>
 
           <p className="text-sm text-center pb-4">
-            Didn`t get a code?{" "}
+            {"Didn't"} get a code?{" "}
             <span className="font-bold text-[#0a9d7f] hover:underline">
               Click to resend.
             </span>
